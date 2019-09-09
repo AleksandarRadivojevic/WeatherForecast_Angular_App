@@ -1,0 +1,57 @@
+<div class="bg" *ngIf='weekData.length !== 0 && !showModal'>
+    <div class="content">
+
+        <!-- search location input -->
+        <div class="searchBox">
+            <input type="text" class="form-control searchCity" disabled value="Weather Forecast">
+            <input type="text" class="form-control searchCity" placeholder="Search Location" [(ngModel)]='location'
+                (keyup.enter)="insertData(location)">
+        </div>
+
+        <!-- current temerature and other data for used location -->
+        <div class="currentBox">
+            <div class="temperature">
+                <img [src]="src" alt="ico" height="130" width="130">
+                <h1 class="display-1">{{currentDay.temp.day | number : '2.0-1'}}</h1>
+                <div class="other">
+                    <h3>°C</h3>
+                    <h4>{{currentDay.weather[0].main}}</h4>
+                    <p>{{currentDay.weather[0].description}}</p>
+                </div>
+            </div>
+            <div class="data">
+                <h3>{{currentDate | date: 'EEEE, MMMM d, y'}}</h3>
+                <h3>{{dataWeather.city.name}}, {{dataWeather.city.country}}</h3>
+            </div>
+        </div>
+
+        <!-- next 7 days -->
+        <table>
+            <tr>
+                <td>7 days Forecast</td>
+                <td>Description</td>
+                <td>TEMP</td>
+                <td>Humidity</td>
+                <td>Pressure</td>
+            </tr>
+            <tr *ngFor='let day of weekData'>
+                <td>{{day.dayName}}</td>
+                <td>{{day.description}}</td>
+                <td>{{day.temp | number : '2.0-1' }} °C</td>
+                <td>{{day.humidity}} %</td>
+                <td>{{day.pressure}} mb</td>
+            </tr>
+        </table>
+    </div>
+
+    <app-footer></app-footer>
+</div>
+
+<div class="spinner-grow text-danger" role="status" style="width: 3rem; height: 3rem;" *ngIf='showSpinner'>
+    <span class="sr-only">Loading...</span>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf='showModal'>
+    Your input is incorrect! Please try again!
+    <button mdbBtn type="button" color="danger" outline="true" mdbWavesEffect (click)='closeModal()'>OK</button>
+</div>

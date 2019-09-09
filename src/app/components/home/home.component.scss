@@ -1,0 +1,81 @@
+body,
+html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("https://i.pinimg.com/originals/69/eb/80/69eb8067d775af1e9a7c523f9af6cdf3.jpg");
+
+  /* Half height */
+  height: 50%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.content {
+  padding: 2% 15%;
+  text-align: center;
+
+  .searchBox {
+    display: flex;
+    justify-content: space-around;
+
+    .searchCity {
+      background-color: black;
+      opacity: 0.7;
+      color: white;
+      border-radius: 5px;
+      outline-width: 0;
+      text-indent: 50px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .currentBox {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    margin-top: 20px;
+
+    .other {
+      margin-left: 20px;
+      text-align: left;
+    }
+  }
+  .temperature {
+    display: flex;
+  }
+
+  table {
+    background: black;
+    opacity: 0.7;
+    color: #fff;
+    font-weight: bolder;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+
+    td {
+      border: 1px solid grey;
+      padding: 5px 20px;
+    }
+  }
+}
+
+.spinner-grow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.alert {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}

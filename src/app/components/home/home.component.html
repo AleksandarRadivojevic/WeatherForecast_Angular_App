@@ -7,7 +7,7 @@
             <input type="text" class="form-control searchCity" placeholder="Search Location" [(ngModel)]='location'
                 (keyup.enter)="insertData(location)">
         </div>
-
+        <button type="button" mdbBtn color="light" size="sm" mdbWavesEffect (click)='insertData(location)'>Search</button>
         <!-- current temerature and other data for used location -->
         <div class="currentBox">
             <div class="temperature">
@@ -31,15 +31,15 @@
                 <td>7 days Forecast</td>
                 <td>Description</td>
                 <td>TEMP</td>
-                <td>Humidity</td>
-                <td>Pressure</td>
+                <td class="hideOnMob">Humidity</td>
+                <td class="hideOnMob">Pressure</td>
             </tr>
             <tr *ngFor='let day of weekData'>
-                <td>{{day.dayName}}</td>
+                <td class="day">{{day.dayName}}</td>
                 <td>{{day.description}}</td>
                 <td>{{day.temp | number : '2.0-1' }} °C</td>
-                <td>{{day.humidity}} %</td>
-                <td>{{day.pressure}} mb</td>
+                <td class="hideOnMob">{{day.humidity}} %</td>
+                <td class="hideOnMob">{{day.pressure}} mb</td>
             </tr>
         </table>
     </div>

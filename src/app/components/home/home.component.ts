@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   public currentDay: any;
   public weekData = [];
   public src: string;
+  public location: string;
 
   public showModal = false;
   public showSpinner = false;
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit {
           // set week days
           const tomorrow = new Date();
           tomorrow.setDate(tomorrow.getDate() + i);
-          const day = tomorrow.toString().substring(0, 3);
+          const day = tomorrow.toString().substring(0, 10);
 
           const daysData = data['list'][i];
 

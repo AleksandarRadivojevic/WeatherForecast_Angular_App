@@ -19,9 +19,13 @@ html {
   padding: 2% 15%;
   text-align: center;
 
+  button {
+    display: none;
+  }
   .searchBox {
     display: flex;
     justify-content: space-around;
+
 
     .searchCity {
       background-color: black;
@@ -58,6 +62,10 @@ html {
     margin-top: 20px;
     border-radius: 5px;
 
+    .day {
+      text-indent: 10px;
+      text-align: left;
+    }
     td {
       border: 1px solid grey;
       padding: 5px 20px;
@@ -78,4 +86,82 @@ html {
   display: flex;
   flex-direction: column;
   padding: 50px;
+}
+
+@media only screen and (max-width: 992px) {
+  .searchBox {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    .data {
+      display: none;
+    }
+
+    table {
+      td {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .content {
+    padding: 2% 10%;
+
+    button {
+      position: absolute;
+      top: 50px;
+      right: 15px;
+      display: block;
+    }
+
+    .currentBox {
+      display: flex;
+      flex-direction: column;
+
+      .other {
+
+        h3,h4,p{
+          font-size: 16px;
+        }
+      }
+    }
+    .temperature {
+
+      img {
+        height: 100px;
+        width: 100px;
+        margin-top: -20px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+    }
+
+    .data {
+      display: block;
+
+      h3 {
+        font-size: 18px;
+      }
+    }
+    table {
+
+      td {
+        border: 1px solid grey;
+        padding: 5px 13px;
+        font-size: 14px;
+      }
+
+      .hideOnMob {
+        display: none;
+      }
+    }
+  }
 }
